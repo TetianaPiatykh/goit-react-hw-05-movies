@@ -1,6 +1,10 @@
-export const App = () => {
+import { Route, Routes } from "react-router-dom";
+import Header from "./Header/Header";
+import Home from "pages/Home/Home";
+
+const App = () => {
   return (
-    <div
+    <Routes
       style={{
         height: '100vh',
         display: 'flex',
@@ -10,7 +14,11 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
-    </div>
+      <Route path="/" element={<Header />} />
+      <Route path="" element={<Home />} />
+      
+    </Routes>
   );
 };
+ 
+export default App;
