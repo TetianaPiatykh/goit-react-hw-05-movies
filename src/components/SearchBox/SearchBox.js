@@ -3,16 +3,18 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const SearchBox = () => {
- const [_, setSearchParams] = useSearchParams('');
+ const [searchParams, setSearchParams] = useSearchParams('');
   const [searchQuery, setSearchQuery] = useState('');
 
   const onChange = event => {
     setSearchQuery(event.target.value);
+    // console.log(searchParams);
   };
 
   const onFormSubmit = e => {
     e.preventDefault();
     setSearchParams({ query: searchQuery });
+    console.log(searchParams);
     // setSearchQuery('');
   };
 

@@ -3,7 +3,8 @@ import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { getMovieInfo } from 'api';
 import { MovieInfo } from 'components/MovieInfo/MovieInfo';
 import { BackLink } from "components/BackLink/BackLink";
-import {AddMovieInfo} from 'components/AddMovieInfo/AddMovieInfo';
+import { AddMovieInfo } from 'components/AddMovieInfo/AddMovieInfo';
+import { Loader } from 'components/Loader/Loader';
 
 const MovieDetails = () => {
     const { id } = useParams();
@@ -32,7 +33,7 @@ const MovieDetails = () => {
                 <BackLink to={backLinkHref}>Back to products</BackLink>
                     <MovieInfo movie={movie}></MovieInfo>
                     <AddMovieInfo />
-                <Suspense fallback={<div>Loading page...</div>}>
+                <Suspense fallback={<Loader />}>
                  <Outlet />
                 </Suspense>
                 

@@ -1,4 +1,6 @@
 import { Outlet} from "react-router-dom";
+import { Suspense } from "react";
+import { Loader } from "components/Loader/Loader";
 import { StyledHeader, Link } from "./Header.styled";
 
 const Header = () => {
@@ -9,7 +11,9 @@ const Header = () => {
            <Link to='/' end>Home</Link>
            <Link to='movies'>Movies</Link>
          </nav>
-         <Outlet />
+        <Suspense fallback={<Loader />}>
+        <Outlet />
+        </Suspense>
         </StyledHeader>
 
     )
