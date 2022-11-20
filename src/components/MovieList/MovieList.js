@@ -1,6 +1,7 @@
 
 import PropTypes from 'prop-types';
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { StyledLink, StyledLi } from './MovieList.styled';
 
 
 const MovieList = ({ movies }) => {
@@ -10,11 +11,11 @@ const MovieList = ({ movies }) => {
     return (
         <ul>
             {movies.map(movie => {
-                return (<li key={movie.id}>
-                    <NavLink to={`/movies/${movie.id}`} state={{ from: location }}>
+               return (<StyledLi key={movie.id}>
+                    <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
                        {movie.title}
-                    </NavLink>
-                </li>);
+                    </StyledLink>
+                </StyledLi>);
             })}
         </ul>
     );
@@ -25,7 +26,7 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
     })
   ),
 };

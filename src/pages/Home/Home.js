@@ -24,8 +24,9 @@ const Home = () => {
 
     return (
         <div>
-            <MovieList movies={trendingMovies} />
+            <MovieList movies={trendingMovies} />   
         </div>
+        
     )
 
     
